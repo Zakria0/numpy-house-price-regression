@@ -85,8 +85,13 @@ def partition_indices(indices, train_ratio, val_ratio):
 def subset_xy(X, y, indices):
     return X[indices], y[indices]
 
-# Step 13 - ols_fit (not yet solved)
-# TODO: implement
+# Step 13 - ols_fit
+def ols_fit(X, y):
+    A = X.T @ X
+    b = X.T @ y
+    theta = np.linalg.solve(A, b)
+
+    return theta
 
 # Step 14 - ols_predict (not yet solved)
 # TODO: implement
