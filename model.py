@@ -44,8 +44,15 @@ def make_ratio_feature(numerator, denominator, eps=1e-8):
 def append_column(X, col):
     return np.concatenate([X, col.reshape(-1, 1)], axis=1)
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+def one_hot_encode(labels):
+    l = np.unique(labels)
+    one_hot_matrix = np.zeros((len(labels), len(l)))
+
+    for i in range(len(labels)):
+        one_hot_matrix[i][np.where(l == labels[i])[0]] = 1
+
+    return one_hot_matrix.astype(float)
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
